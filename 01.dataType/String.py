@@ -55,6 +55,7 @@ number = 3
 print("I have {0} apple device".format(number))
 
 print("I have {0} apple device, There ware made in {country}".format(3, country="china"))
+# non-keyword arg가 앞에  keyword arg가 뒤에 위치(반대의 경우 에러)
 
 print("{0:<10}".format("python"))  # 왼쪽 정렬
 print("{0:>10}".format("python"))  # 오른쪽 정렬
