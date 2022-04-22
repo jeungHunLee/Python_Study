@@ -40,7 +40,7 @@ print(a)
 a = {1: 'a', 2: 'b', 3: 'c', 4: 'd'}
 print(a.get(1))
 print(a.get(5)) # 존재하지 않는 Key값으로 None 반환
-print(a[5])     # 존재하지 않는 Key값으로 오류 발생
+# print(a[5]) ->  존재하지 않는 Key값으로 오류 발생
 
 # 딕셔너리 안에 Key가 존재 하는지 확인
 a = {1: 'a', 2: 'b', 3: 'c', 4: 'd'}
