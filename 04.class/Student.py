@@ -1,6 +1,6 @@
 class Student:
 
-    #생성자
+    # 생성자
     def __init__(self, name, age, mathScore, engScore):
         self.name = name
         self.age = age
@@ -14,14 +14,14 @@ class Student:
         self.mathScore = mathScore
         self.engScore = engScore
 
-    def showInfo(self):     # 학생 정보
+    def showInfo(self):  # 학생 정보
         print("학생의 이름은 %s이고, 나이는 %d입니다." % (self.name, self.age))
 
-    def sum(self):      # 점수 합계
-        result =  self.mathScore + self.engScore
-        print("점수의 합은 %d입니다." %result)
+    def sum(self):  # 점수 합계
+        result = self.mathScore + self.engScore
+        print("점수의 합은 %d입니다." % result)
 
-    def mathGrade(self):    # 수학 점수 등급
+    def mathGrade(self):  # 수학 점수 등급
         if self.mathScore >= 90:
             print("A학점입니다.")
 
@@ -37,7 +37,7 @@ class Student:
         else:
             print("F학점입니다.")
 
-    def engGrade(self):     # 영어 점수 등급
+    def engGrade(self):  # 영어 점수 등급
         if self.engScore >= 90:
             print("A학점입니다.")
 
@@ -53,7 +53,8 @@ class Student:
         else:
             print("F학점입니다.")
 
-class ModStudent(Student):      # 클래스 상속
+
+class ModStudent(Student):  # 클래스 상속
     def average(self):  # 점수 평균 메서드 추가
         result = (self.mathScore + self.engScore) / 2
         print("점수의 평균은 %d입니다." % result)
