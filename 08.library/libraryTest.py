@@ -23,5 +23,5 @@ print(time.ctime) # time.asctime과 같은 값 반환
 
 # random
 import random
-print(random.randim())   # 0과 1사이의 난수 발생
+print(random.random())   # 0과 1사이의 난수 발생
 print(random.randint(1, 10))      # 1에서 10 사이의 난수 발생
