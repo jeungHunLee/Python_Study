@@ -17,11 +17,12 @@ print(chr(64))  # @
 print(divmod(5, 3))  # (1, 2)
 
 # enumerate 함수
-for i, name in enumerate(['You', 'need', 'Python']):
-    print(i, name)
-# 0 You
-# 1 need
-# 2 Python
+e = enumerate(['You', 'need', 'Python'])
+for i in range(3):
+    print(next(e))    # tuple 형태로 제공
+'''(0, 'You')
+(1, 'need')
+(2, 'Python')'''
 
 # eval 함수
 print(eval('5+5'))  # 10
@@ -59,13 +60,6 @@ print(len([1, 2, 3, 4, 5]))  # 6
 # list 함수
 print(list('Python'))  # ['P', 'y', 't', 'h', 'o', 'n']
 print(list((1, 2, 3)))  # [1, 2, 3]
-
-
-# map 함수
-def two_times(x): return x * 2
-
-
-print(list(map(two_times, [1, 2, 3, 4])))   # [2, 4, 6, 8]
 
 # max 함수
 print(max([1, 3, 5, 7, 9]))     # 9
