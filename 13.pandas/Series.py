@@ -61,12 +61,23 @@ dtype: int64
 '''
 
 # Series data 삭제(2)
-obj = obj.drop('c')    # obj.drop('c' inplace=Trie) 배열 자가수정
+obj = obj.drop('c')    # obj.drop('c' inplace=True) 배열 자가수정
 print(obj)
 '''
 a     3
 d     2
 e    50
+dtype: int64
+'''
+
+# Series index 순서 변경
+obj = pd.Series([1, 2, 3])
+obj = obj.reindex([2, 0, 1])    # 순서 변경
+print(obj)
+'''
+2    3
+0    1
+1    2
 dtype: int64
 '''
 
@@ -102,6 +113,23 @@ Name: Test data, dtype: int64
 a = pd.Series([926, 924, 921, 943, 923])
 print(a[0])    # 926
 print(a[1])    # 924
+print(a[[0, 2, 4]])
+'''
+0    926
+2    921
+4    923
+dtype: int64
+'''
+
+# Series slicing
+a = pd.Series([926, 924, 921, 943, 923])
+print(a.iloc[0:3])
+'''
+0    926
+1    924
+2    921
+dtype: int64
+'''
 
 # Series operation (by index)
 mine = pd.Series([10, 20, 30], index=['a', 'b', 'c'])
