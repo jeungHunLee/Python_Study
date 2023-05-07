@@ -140,35 +140,73 @@ No.
 4            Park  2015     2.9
 '''
 
-# DataFrame indexing & slicing
-data = {'Name': ['Lee', 'Lee', 'Choi', 'Kim', 'Park'],
-        'Year': [2013, 2014, 2015, 2016, 2015],
-        'Points': [1.5, 1.8, 3.6, 2.4, 2.9]}
-df = pd.DataFrame(data)
+# DataFrame rename index and columns
+data = [
+    [1991, 'Guido van Rossum'],
+    [1985, 'Bjarne Stroustrup'],
+    [1995, 'James Gosling']
+]
 
-print(df['Year'], '\n')    # column indexing
+df = pd.DataFrame(data,
+                  index=['Python', 'C++', 'Java'],
+                  columns=['year', 'designer'])
+print(df)
 '''
-0    2013
-1    2014
-2    2015
-3    2016
-4    2015
+        year           designer
+Python  1991   Guido van Rossum
+C++     1985  Bjarne Stroustrup
+Java    1995      James Gosling
+'''
+
+df.rename(index={'Python': '파이썬', 'Java': '자바'}, inplace=True)    # inplace=True: change itself
+df.rename(columns={'year': '연도', 'designer': '설계자'}, inplace=True)
+print(df, '\n')
+'''
+       연도                설계자
+파이썬  1991    Guido van Rossum
+C++  1985    Bjarne Stroustrup
+자바   1995       James Gosling
+'''
+
+# DataFrame indexing & slicing
+data = {'Year': [2013, 2014, 2015, 2016, 2015],
+        'Points': [1.5, 1.8, 3.6, 2.4, 2.9]}
+df = pd.DataFrame(data, index=['Lee', 'Lee', 'Choi', 'Kim', 'Park'])
+
+# column indexing & slicing
+print(df['Year'], '\n')    # print(df.Year, '\n')
+'''
+Lee     2013
+Lee     2014
+Choi    2015
+Kim     2016
+Park    2015
 Name: Year, dtype: int64 
 '''
-print(df[['Name', 'Points']], '\n')
+print(df[['Year', 'Points']], '\n')
 '''
-   Name  Points
-0   Lee     1.5
-1   Lee     1.8
-2  Choi     3.6
-3   Kim     2.4
-4  Park     2.9 
+      Year  Points
+Lee   2013     1.5
+Lee   2014     1.8
+Choi  2015     3.6
+Kim   2016     2.4
+Park  2015     2.9
 '''
-print(df.iloc[1:3])
+
+# row indexing & slicing
+print(df.iloc[1:3])    # print(df.iloc[[1, 2]])
 '''
-   Name  Year  Points
-1   Lee  2014     1.8
-2  Choi  2015     3.6
+      Year  Points
+Lee   2014     1.8
+Choi  2015     3.6
+'''
+
+print(df.loc['Lee': 'Choi'], '\n')    # print(df.loc[['Lee', 'Choi']])
+'''
+      Year  Points
+Lee   2013     1.5
+Lee   2014     1.8
+Choi  2015     3.6
 '''
 
 data = {'open': [11650, 11100, 11200, 11100, 11000],
